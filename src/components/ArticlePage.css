@@ -102,17 +102,51 @@
     padding: 0 24px;
 }
 
-/* Hide sidebars on smaller screens */
+/* Hide sidebars on smaller screens - show them below content instead */
 @media (max-width: 1200px) {
     .article-page {
         grid-template-columns: 1fr;
         padding: 100px 16px 80px;
     }
+    
+    /* Make sidebars stack below the main content */
     .article-sidebar {
-        display: none;
+        position: relative;
+        top: 0;
+        grid-column: 1;
+        margin: 40px auto 0;
+        max-width: 600px;
+        width: 100%;
+        padding: 24px;
+        background: rgba(255,255,255,0.8);
     }
+    
+    .article-sidebar-left {
+        justify-self: center;
+        order: 1;
+    }
+    
+    .article-sidebar-right {
+        justify-self: center;
+        order: 2;
+    }
+    
     .article-container {
         grid-column: 1;
+        order: 0;
+    }
+    
+    .sidebar-article-image {
+        width: 100%;
+        max-width: 500px;
+        height: 200px;
+        margin: 0 auto 12px;
+    }
+    
+    .sidebar-article-title {
+        max-width: 500px;
+        font-size: 15px;
+        -webkit-line-clamp: 3;
     }
 }
 
@@ -616,6 +650,21 @@
         max-height: 500px;
         border: 2px solid #c9a227;
     }
+    
+    /* Make sidebar articles display in 2 columns on tablets */
+    .article-sidebar {
+        max-width: 700px;
+        padding: 20px;
+    }
+    
+    .sidebar-article-image {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .sidebar-article-title {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -718,6 +767,28 @@
         left: 20px;
         width: 44px;
         height: 44px;
+    }
+    
+    /* Mobile sidebar adjustments */
+    .article-sidebar {
+        max-width: 500px;
+        padding: 20px 16px;
+        margin: 32px auto 0;
+    }
+    
+    .sidebar-title {
+        font-size: 14px;
+        padding-bottom: 8px;
+    }
+    
+    .sidebar-article-image {
+        width: 100%;
+        height: 160px;
+    }
+    
+    .sidebar-article-title {
+        font-size: 14px;
+        max-width: 100%;
     }
 }
 
@@ -836,6 +907,33 @@
         width: 40px;
         height: 40px;
     }
+    
+    /* Smaller sidebar boxes on phones */
+    .article-sidebar {
+        max-width: 100%;
+        padding: 18px 12px;
+        margin: 28px auto 0;
+    }
+    
+    .sidebar-title {
+        font-size: 13px;
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+    }
+    
+    .sidebar-article {
+        margin-bottom: 16px;
+    }
+    
+    .sidebar-article-image {
+        width: 100%;
+        height: 140px;
+        border: 4px solid #c9a227;
+    }
+    
+    .sidebar-article-title {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -944,5 +1042,31 @@
 
     .article-not-found p {
         font-size: 14px;
+    }
+    
+    /* Very compact sidebar for small phones */
+    .article-sidebar {
+        padding: 16px 10px;
+        margin: 24px auto 0;
+        gap: 24px;
+    }
+    
+    .sidebar-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    
+    .sidebar-article {
+        margin-bottom: 12px;
+    }
+    
+    .sidebar-article-image {
+        height: 120px;
+        border: 3px solid #c9a227;
+    }
+    
+    .sidebar-article-title {
+        font-size: 12px;
+        line-height: 1.35;
     }
 }
