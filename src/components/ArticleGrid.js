@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ArticleGrid.css';
 
+// Continuous horizontal scrolling carousel component with gold frames
 const ArticleGrid = ({ articles }) => {
     const navigate = useNavigate();
     const carouselRef = useRef(null);
