@@ -180,7 +180,7 @@ html, body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px 10px 150px;
+    padding: 20px 10px 200px;
     box-sizing: border-box;
     /* Smooth transitions for enter/exit animations */
     transition: transform 700ms cubic-bezier(.2,.9,.2,1), 
@@ -344,7 +344,7 @@ html, body {
         /* Allow content to expand - use auto height */
         min-height: auto;
         height: auto;
-        padding: 20px 12px 180px;
+        padding: 20px 12px 220px;
         /* Faster transitions on mobile */
         transition: transform 500ms cubic-bezier(.2,.9,.2,1), 
                     opacity 400ms ease;
@@ -354,7 +354,7 @@ html, body {
     }
 
     .snap-container::after {
-        height: 180px;
+        height: 220px;
     }
 }
 
@@ -397,14 +397,14 @@ html, body {
     .snap-item {
         min-height: auto;
         height: auto;
-        padding: 18px 10px 180px;
+        padding: 18px 10px 220px;
         display: flex;
         align-items: flex-start;
         justify-content: center;
     }
 
     .snap-container::after {
-        height: 180px;
+        height: 220px;
     }
 }
 
@@ -430,7 +430,7 @@ html, body {
     }
 
     .snap-item {
-        padding: 16px 8px 180px;
+        padding: 16px 8px 220px;
         min-height: auto;
         height: auto;
         display: flex;
@@ -444,7 +444,7 @@ html, body {
     }
 
     .snap-container::after {
-        height: 180px;
+        height: 220px;
     }
 }
 
