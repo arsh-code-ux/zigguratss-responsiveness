@@ -173,13 +173,14 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    /* FULL FRAME HEIGHT: each article fills the frame */
+    /* Allow content to expand beyond viewport - use min-height not max-height */
     min-height: calc(100vh - var(--header-height, 80px));
+    height: auto;
     /* Center the article content */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 20px 10px;
+    padding: 20px 10px 80px;
     box-sizing: border-box;
     /* Smooth transitions for enter/exit animations */
     transition: transform 700ms cubic-bezier(.2,.9,.2,1), 
@@ -340,12 +341,16 @@ html, body {
     
     .snap-item {
         scroll-snap-stop: normal;
-        /* Auto height on mobile for better content display */
-        min-height: calc(90vh - var(--header-height, 80px));
-        padding: 20px 12px;
+        /* Allow content to expand - use auto height */
+        min-height: auto;
+        height: auto;
+        padding: 20px 12px 100px;
         /* Faster transitions on mobile */
         transition: transform 500ms cubic-bezier(.2,.9,.2,1), 
                     opacity 400ms ease;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
     }
 
     .snap-container::after {
@@ -390,8 +395,12 @@ html, body {
     }
 
     .snap-item {
-        min-height: calc(85vh - var(--header-height, 80px));
-        padding: 18px 10px;
+        min-height: auto;
+        height: auto;
+        padding: 18px 10px 100px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
     }
 
     .snap-container::after {
@@ -421,8 +430,12 @@ html, body {
     }
 
     .snap-item {
-        padding: 16px 8px;
-        min-height: calc(80vh - var(--header-height, 80px));
+        padding: 16px 8px 100px;
+        min-height: auto;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
     }
 
     .snap-container {
