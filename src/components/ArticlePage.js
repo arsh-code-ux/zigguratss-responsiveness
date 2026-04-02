@@ -34,10 +34,20 @@ const articleContent = {
                 <li><strong>Botanical Art:</strong> Close-up studies of flowers, leaves, and plants</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-18-56.png" alt="Nature painting style example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-19-33.png" alt="Nature painting style example 2" />
+            </div>
+            
             <h2>Choosing the Right Nature Painting</h2>
             <p>When selecting a nature painting for your home, consider the room's existing color scheme, the mood you want to create, and the scale of the wall space. A large statement piece can anchor a living room, while smaller works might be perfect for hallways or bedrooms.</p>
             
             <p>At Zigguratss Artwork LLP, our collection features nature paintings from talented Indian artists, each bringing their unique vision to this timeless genre. Whether you're drawn to the tranquility of a misty morning landscape or the vibrant energy of a tropical scene, you'll find artwork that speaks to your soul.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-20-14.png" alt="Nature painting example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2010-21-47.png" alt="Nature painting example 4" />
+            </div>
         `
     },
     2: {
@@ -71,10 +81,20 @@ const articleContent = {
                 <li><strong>Traditional Indian:</strong> Animals depicted in classical Indian artistic traditions</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-31-43.png" alt="Animal painting style example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-32-22.png" alt="Animal painting style example 2" />
+            </div>
+            
             <h2>Bringing Animal Art Into Your Space</h2>
             <p>An animal painting can transform a room, adding personality and visual interest. Consider the energy you want to bring into your space – the calm presence of an elephant, the dynamic motion of running horses, or the quiet dignity of a portrait-style piece.</p>
             
             <p>Each animal painting at Zigguratss tells a story, inviting viewers to connect with the spirit and beauty of the creature depicted. Explore our collection to find a piece that resonates with your personal connection to the animal kingdom.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-32-52.png" alt="Animal painting example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2010-33-31.png" alt="Animal painting example 4" />
+            </div>
         `
     },
     3: {
@@ -101,6 +121,11 @@ const articleContent = {
                 <li><strong>Depth:</strong> The sense of space and distance</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-39-05.png" alt="Landscape painting example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-40-21.png" alt="Landscape painting example 2" />
+            </div>
+            
             <h2>Choosing Landscapes for Your Home</h2>
             <p>A landscape painting can set the tone for an entire room. Consider these factors when selecting:</p>
             <ul>
@@ -111,6 +136,11 @@ const articleContent = {
             </ul>
             
             <p>At Zigguratss, our landscape collection spans serene rural scenes, majestic mountain vistas, coastal panoramas, and urban landscapes. Each piece is created by artists who understand the power of place and the emotions that landscapes can evoke.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-41-00.png" alt="Landscape painting example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2010-42-29.png" alt="Landscape painting example 4" />
+            </div>
         `
     },
     4: {
@@ -144,10 +174,20 @@ const articleContent = {
                 <li><strong>Minimalist:</strong> Reduced to essential elements</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-45-00.png" alt="Abstract painting example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-45-11.png" alt="Abstract painting example 2" />
+            </div>
+            
             <h2>Selecting Abstract Art for Your Space</h2>
             <p>When choosing abstract art, trust your instincts. The right piece will speak to you emotionally, even if you can't articulate why. Consider the colors, the energy, and how the work makes you feel. Abstract art is deeply personal – what resonates with one person may leave another cold, and that's perfectly fine.</p>
             
             <p>Zigguratss features abstract works from emerging and established Indian artists, offering a range of styles from bold and vibrant to subtle and contemplative. Explore our collection to find the abstract painting that speaks to your soul.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-45-19.png" alt="Abstract painting example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2010-47-10.png" alt="Abstract painting example 4" />
+            </div>
         `
     },
     5: {
@@ -171,6 +211,11 @@ const articleContent = {
                 <li><strong>Textural Richness:</strong> Layered paint application creating depth and interest</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-53-25.png" alt="Chetan Katigar work 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-53-42.png" alt="Chetan Katigar work 2" />
+            </div>
+            
             <h2>Major Works and Exhibitions</h2>
             <p>Chetan Katigar's paintings have been exhibited in galleries across India and internationally. His work is held in private collections worldwide, appreciated for its emotional depth and visual impact.</p>
             
@@ -178,6 +223,11 @@ const articleContent = {
             <p>Katigar's paintings represent an important voice in contemporary Indian art. By blending traditional themes with modern techniques, he creates works that speak to both heritage and contemporary experience. His art invites viewers to contemplate universal themes of love, spirituality, and the human condition.</p>
             
             <p>At Zigguratss, we are proud to feature selected works by Chetan Katigar. Each painting offers collectors the opportunity to own a piece of contemporary Indian art history.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-55-00.png" alt="Chetan Katigar work 3" />
+                <img src="/Screenshot%20from%202026-04-02%2010-55-43.png" alt="Chetan Katigar work 4" />
+            </div>
         `
     },
     6: {
@@ -205,10 +255,20 @@ const articleContent = {
                 <li>Express complex emotions or experiences</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-58-58.png" alt="Conceptual painting example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2010-59-19.png" alt="Conceptual painting example 2" />
+            </div>
+            
             <h2>Living with Conceptual Art</h2>
             <p>Owning a conceptual painting means living with a work that continues to reveal new layers of meaning over time. Unlike purely decorative art, conceptual pieces engage the mind and can transform how you see the world around you.</p>
             
             <p>At Zigguratss, our conceptual art collection features works by Indian artists who combine visual sophistication with intellectual depth. These are paintings that reward contemplation and grow richer with each viewing.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2010-59-35.png" alt="Conceptual painting example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-00-54.png" alt="Conceptual painting example 4" />
+            </div>
         `
     },
     7: {
@@ -232,6 +292,11 @@ const articleContent = {
                 <li>The interplay of torchlight and darkness</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-07-32.png" alt="Festival of Tooth artwork 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-07-54.png" alt="Festival of Tooth artwork 2" />
+            </div>
+            
             <h2>Cultural Significance</h2>
             <p>This artwork represents more than a festival – it embodies the living connection between art, spirituality, and cultural heritage. The painting serves as a window into traditions that have been celebrated for centuries and continue to inspire faith and community.</p>
             
@@ -239,6 +304,11 @@ const articleContent = {
             <p>Works like 'Festival of Tooth' play an important role in preserving and sharing cultural heritage. They allow viewers from any background to experience the beauty and meaning of traditions they might never encounter otherwise.</p>
             
             <p>At Zigguratss, we believe in the power of art to connect cultures and celebrate diversity. This painting exemplifies our commitment to showcasing works that honor tradition while speaking to universal human experiences.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-08-16.png" alt="Festival of Tooth artwork 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-08-52.png" alt="Festival of Tooth artwork 4" />
+            </div>
         `
     },
     8: {
@@ -413,8 +483,18 @@ const articleContent = {
             <h2>The Journey to Recognition</h2>
             <p>Rajasekharan's path to the world record was paved with countless hours of work, unwavering focus, and deep commitment to his artistic vision. His achievement serves as an inspiration to artists everywhere who pursue their craft with dedication.</p>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-40-11.png" alt="Rajasekharan Parameswaran artwork 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-40-20.png" alt="Rajasekharan Parameswaran artwork 2" />
+            </div>
+            
             <h2>Legacy and Influence</h2>
             <p>Beyond the world record, Rajasekharan's contribution lies in demonstrating that traditional Indian art forms remain vibrant and relevant. His work bridges generations, honoring ancient techniques while creating works that speak to contemporary audiences.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-40-34.png" alt="Rajasekharan Parameswaran artwork 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-40-42.png" alt="Rajasekharan Parameswaran artwork 4" />
+            </div>
             
             <p>Explore works by this remarkable artist at Zigguratss and experience the devotion that earned him a place in the record books.</p>
         `
@@ -443,8 +523,18 @@ const articleContent = {
             <h2>Themes and Subjects</h2>
             <p>Mrinal's work often explores themes of human connection, introspection, and the beauty of everyday moments. His subjects feel real and relatable, inviting viewers to see themselves in the painted figures.</p>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-42-26.png" alt="Mrinal Dutt artwork 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-42-34.png" alt="Mrinal Dutt artwork 2" />
+            </div>
+            
             <h2>An Inspiring Example</h2>
             <p>For aspiring artists, Mrinal Dutt's story offers hope and encouragement. His success proves that passion, practice, and perseverance can lead to artistic excellence regardless of formal credentials.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-42-42.png" alt="Mrinal Dutt artwork 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-42-49.png" alt="Mrinal Dutt artwork 4" />
+            </div>
             
             <p>Discover Mrinal Dutt's remarkable figurative paintings at Zigguratss and experience the work of an artist who proves that mastery comes from within.</p>
         `
@@ -473,8 +563,18 @@ const articleContent = {
             <h2>Fine Art in India</h2>
             <p>India has a rich tradition of fine art spanning millennia. From the cave paintings of Ajanta to the contemporary galleries of Mumbai and Delhi, Indian artists have contributed significantly to the global fine art conversation.</p>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-45-36.png" alt="Fine art collection 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-46-12.png" alt="Fine art collection 2" />
+            </div>
+            
             <h2>Collecting Fine Art</h2>
             <p>Building a fine art collection is a rewarding journey. Whether you're drawn to traditional techniques or contemporary experimentation, the key is to collect what moves you. Fine art should enhance your life and environment.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-46-21.png" alt="Fine art collection 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-46-31.png" alt="Fine art collection 4" />
+            </div>
             
             <p>At Zigguratss, we offer a curated selection of fine art by Indian artists, spanning styles and subjects to suit diverse tastes. Begin or enhance your collection with works that will bring lasting beauty and meaning to your space.</p>
         `
@@ -504,8 +604,18 @@ const articleContent = {
             <h2>Abstract Art in Contemporary India</h2>
             <p>Indian abstract artists bring unique perspectives to the genre, often incorporating elements of Indian aesthetics, spirituality, and cultural symbolism into their non-representational works.</p>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-48-39.png" alt="Abstract art 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-49-30.png" alt="Abstract art 2" />
+            </div>
+            
             <h2>Living with Abstract Art</h2>
             <p>Abstract art offers something different from figurative works: the freedom of interpretation. The same painting may evoke different responses in different viewers, making it a dynamic presence in your home.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-49-49.png" alt="Abstract art 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-50-16.png" alt="Abstract art 4" />
+            </div>
             
             <p>Explore our collection of abstract art by Indian artists and discover works that speak to your personal aesthetic sense and emotional resonance.</p>
         `
@@ -533,8 +643,18 @@ const articleContent = {
             <h2>Lasting Influence</h2>
             <p>Ravi Varma's depictions of gods and goddesses became so popular that they shaped how generations of Indians visualize their deities. His influence extends far beyond galleries – his imagery permeates Indian popular culture, from calendar art to film.</p>
             
+            <div class="article-inline-images">
+                <img src="/raviraj1.jpg" alt="Raja Ravi Varma artwork 1" />
+                <img src="/raviraj2.jpeg" alt="Raja Ravi Varma artwork 2" />
+            </div>
+            
             <h2>Legacy for Contemporary Artists</h2>
             <p>Raja Ravi Varma demonstrated that Indian artists could master any technique while remaining true to Indian subjects and sensibilities. His example continues to inspire artists who seek to bridge tradition and innovation.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/raviraj3.jpeg" alt="Raja Ravi Varma artwork 3" />
+                <img src="/raviraj4.jpeg" alt="Raja Ravi Varma artwork 4" />
+            </div>
             
             <p>While original Ravi Varma works are museum pieces, his legacy lives on in contemporary Indian art. At Zigguratss, we honor his pioneering spirit by showcasing artists who, like him, push boundaries while celebrating Indian heritage.</p>
         `
