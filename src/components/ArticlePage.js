@@ -332,11 +332,21 @@ const articleContent = {
                 <li><strong>Imaginative Freedom:</strong> Willingness to explore beyond conventional boundaries</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-25-18.png" alt="Deepshikha Bishoyi artwork 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-25-30.png" alt="Deepshikha Bishoyi artwork 2" />
+            </div>
+            
             <h2>Themes and Subjects</h2>
             <p>Deepshikha's work often explores themes of femininity, nature, mythology, and the human experience. Her paintings invite viewers to pause, reflect, and find personal meaning in her visual narratives.</p>
             
             <h2>Recognition and Collections</h2>
             <p>Bishoyi's paintings have earned recognition from critics and collectors alike. Her work is featured in private collections across India and abroad, appreciated for both its beauty and its depth.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-25-38.png" alt="Deepshikha Bishoyi artwork 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-25-48.png" alt="Deepshikha Bishoyi artwork 4" />
+            </div>
             
             <p>Zigguratss is honored to feature Deepshikha Bishoyi's work. Her paintings represent the best of contemporary Indian art – technically accomplished, emotionally engaging, and distinctively personal.</p>
         `
@@ -361,11 +371,21 @@ const articleContent = {
                 <li><strong>Quality Assurance:</strong> Each artwork meets our standards for technique and presentation</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-27-10.png" alt="Modern art collection 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-27-30.png" alt="Modern art collection 2" />
+            </div>
+            
             <h2>Supporting Indian Artists</h2>
             <p>When you purchase from Zigguratss, you're directly supporting Indian artists. We work closely with our artists, ensuring fair compensation and helping them reach audiences who will appreciate their work.</p>
             
             <h2>Finding Your Perfect Piece</h2>
             <p>Whether you're a first-time buyer or an experienced collector, our team is here to help you find artwork that resonates with your taste and fits your space. Art should be a joy to live with – let us help you discover that joy.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-27-51.png" alt="Modern art collection 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-27-57.png" alt="Modern art collection 4" />
+            </div>
             
             <p>Explore our collection and become part of the Zigguratss community of art lovers who believe in the power of original, handcrafted artwork to transform spaces and lives.</p>
         `
@@ -390,11 +410,21 @@ const articleContent = {
                 <li><strong>Emotional Truth:</strong> Genuine expression rather than commercial formula</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-29-24.png" alt="Indian art collection 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-29-37.png" alt="Indian art collection 2" />
+            </div>
+            
             <h2>Our Curatorial Approach</h2>
             <p>At Zigguratss, we carefully curate our collection to showcase the diversity and depth of Indian art. Our selection process considers artistic merit, authenticity, and the ability of each work to connect with viewers on an emotional level.</p>
             
             <h2>Investing in Indian Art</h2>
             <p>Beyond the joy of ownership, Indian art represents a meaningful investment. As the global art market increasingly recognizes Indian artists, early collectors have the opportunity to acquire significant works at accessible prices.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-29-53.png" alt="Indian art collection 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-30-58.png" alt="Indian art collection 4" />
+            </div>
             
             <p>We invite you to explore the soul of modern Indian art through our collection. Each painting tells a story, reflects a vision, and offers the opportunity to own a piece of India's creative spirit.</p>
         `
@@ -420,11 +450,21 @@ const articleContent = {
                 <li><strong>Entryway:</strong> Welcome guests with art that reflects your style</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-33-29.png" alt="Home decor example 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-33-45.png" alt="Home decor example 2" />
+            </div>
+            
             <h2>Size and Scale Considerations</h2>
             <p>The right size painting depends on your wall space and furniture arrangement. As a general rule, artwork should take up about two-thirds to three-quarters of the available wall space above a piece of furniture.</p>
             
             <h2>Building a Collection Over Time</h2>
             <p>You don't need to fill every wall at once. Many collectors prefer to acquire pieces gradually, choosing each work with care. This approach results in a more personal and meaningful collection.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-34-03.png" alt="Home decor example 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-34-20.png" alt="Home decor example 4" />
+            </div>
             
             <p>Let Zigguratss help you find the perfect artwork to transform your home. Our collection offers options for every taste, space, and budget – all featuring original works by talented Indian artists.</p>
         `
@@ -450,11 +490,21 @@ const articleContent = {
                 <li><strong>Spiritual Depth:</strong> Exploration of consciousness and transcendence</li>
             </ul>
             
+            <div class="article-inline-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-37-44.png" alt="Anupam Pal artwork 1" />
+                <img src="/Screenshot%20from%202026-04-02%2011-38-04.png" alt="Anupam Pal artwork 2" />
+            </div>
+            
             <h2>Signature Style</h2>
             <p>Anupam Pal's paintings are immediately recognizable for their vibrant colors, dynamic compositions, and the seamless integration of figurative and abstract elements. His work invites contemplation while celebrating the visual richness of Indian artistic traditions.</p>
             
             <h2>Recognition and Impact</h2>
             <p>Pal's work has been featured in numerous exhibitions and is held in private collections throughout India and internationally. He represents the exciting potential of contemporary Indian art to speak to global audiences while remaining rooted in cultural heritage.</p>
+            
+            <div class="article-inline-images article-final-images">
+                <img src="/Screenshot%20from%202026-04-02%2011-38-16.png" alt="Anupam Pal artwork 3" />
+                <img src="/Screenshot%20from%202026-04-02%2011-38-36.png" alt="Anupam Pal artwork 4" />
+            </div>
             
             <p>Discover Anupam Pal's captivating works in our collection and experience the unique fusion of myth, music, and modernity that defines his artistic vision.</p>
         `

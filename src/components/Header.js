@@ -33,7 +33,7 @@ const Header = () => {
                         <li><a href="#" onClick={preventIfDisabled} className="disabled" aria-disabled="true">Artwork</a></li>
                         <li><a href="#" onClick={preventIfDisabled} className="disabled" aria-disabled="true">Artist</a></li>
                         <li><a href="#" onClick={preventIfDisabled} className="disabled" aria-disabled="true">About</a></li>
-                        <li><a href="https://zigguratss.com/blog" className="active">Blog</a></li>
+                        <li><a href="/" className="active">Blog</a></li>
                         <li><a href="#" onClick={preventIfDisabled} className="disabled" aria-disabled="true">Contest</a></li>
                         <li><a href="#" onClick={preventIfDisabled} className="disabled" aria-disabled="true">Contact</a></li>
                     </ul>
