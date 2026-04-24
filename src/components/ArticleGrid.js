@@ -25,12 +25,13 @@ const ArticleGrid = ({ articles }) => {
 
     useEffect(() => {
         const carousel = carouselRef.current;
-        if (!carousel || isMobile) return; // Disable auto-scroll on mobile
+        if (!carousel) return;
 
         let scrollPosition = 0;
         let animationFrameId = null;
 
         const scroll = () => {
+            // Continue scrolling unless user is hovering/touching
             if (!isHovering) {
                 scrollPosition += 1;
                 carousel.scrollLeft = scrollPosition;
@@ -51,7 +52,7 @@ const ArticleGrid = ({ articles }) => {
                 cancelAnimationFrame(animationFrameId);
             }
         };
-    }, [isHovering, isMobile]);
+    }, [isHovering]);
 
     return (
         <div className="article-carousel-section">
@@ -60,6 +61,8 @@ const ArticleGrid = ({ articles }) => {
                 ref={carouselRef}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
+                onTouchStart={() => setIsHovering(true)}
+                onTouchEnd={() => setIsHovering(false)}
             >
                 <div className="carousel-track">
                     {/* Original articles */}
