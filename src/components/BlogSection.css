@@ -148,6 +148,8 @@ html, body {
     /* RELATIVE POSITION: Takes normal document flow space */
     position: relative;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     /* Minimum height to ensure content visibility */
     min-height: calc(100vh - var(--header-height, 80px));
     /* NO SCROLL: articles are positioned absolutely and shown one at a time */
@@ -182,12 +184,12 @@ html, body {
     justify-content: center;
     padding: 20px 10px 200px;
     box-sizing: border-box;
-    /* Smooth transitions for enter/exit animations */
+    /* Smooth transitions for enter/exit animations - supports both horizontal and vertical swipes */
     transition: transform 700ms cubic-bezier(.2,.9,.2,1), 
                 opacity 500ms ease;
     /* DEFAULT: Completely hidden */
     opacity: 0;
-    transform: translateY(0);
+    transform: translateY(0) scale(0.95);
     pointer-events: none;
     visibility: hidden;
     z-index: 1;

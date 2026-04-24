@@ -368,13 +368,23 @@ const BlogSection = () => {
             // Calculate velocity for better swipe detection
             const velocity = Math.sqrt(diffY * diffY + diffX * diffX) / touchDuration;
             
-            // Only change article on significant horizontal swipe
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                // Horizontal swipe only
+            // Swipe threshold (50px minimum movement)
+            const swipeThreshold = 50;
+            
+            // Check which direction has more movement
+            const isDominantHorizontal = Math.abs(diffX) > Math.abs(diffY);
+            const isDominantVertical = Math.abs(diffY) > Math.abs(diffX);
+            
+            // Horizontal swipe: Left/Right arrow changes articles
+            if (isDominantHorizontal && Math.abs(diffX) > swipeThreshold) {
                 // Right swipe (diffX negative) = previous, Left swipe (diffX positive) = next
                 changeArticle(diffX > 0 ? 1 : -1);
             }
-            // Vertical swipes should allow normal page scrolling
+            // Vertical swipe: Up/Down arrow changes articles
+            else if (isDominantVertical && Math.abs(diffY) > swipeThreshold) {
+                // Swipe up (diffY positive) = next, Swipe down (diffY negative) = previous
+                changeArticle(diffY > 0 ? 1 : -1);
+            }
         };
 
         // Keyboard navigation - support both vertical AND horizontal arrow keys
