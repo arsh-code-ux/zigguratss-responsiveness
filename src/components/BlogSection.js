@@ -351,9 +351,21 @@ const BlogSection = () => {
         };
         
         const onTouchMove = (e) => {
-            // On mobile, let natural scrolling work within snap-item
-            // Don't prevent default - let the browser handle native scrolling
-            // The snap-item will show one article at a time, so scrolling will be natural
+            // If currently swiping to change articles (detected in onTouchEnd),
+            // prevent page scroll. Otherwise, allow natural page scroll.
+            const moveY = e.touches ? e.touches[0].clientY : e.clientY;
+            const moveX = e.touches ? e.touches[0].clientX : e.clientX;
+            const diffY = Math.abs(touchStartY - moveY);
+            const diffX = Math.abs(touchStartX - moveX);
+            
+            // Check if this is a vertical or horizontal swipe in progress
+            const isVerticalSwipe = diffY > diffX && diffY > 20;
+            const isHorizontalSwipe = diffX > diffY && diffX > 20;
+            
+            // Only prevent default if it's a clear swipe (not page scroll)
+            if (isVerticalSwipe || isHorizontalSwipe) {
+                e.preventDefault();
+            }
         };
         
         const onTouchEnd = (e) => {
