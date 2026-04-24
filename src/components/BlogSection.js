@@ -344,15 +344,18 @@ const BlogSection = () => {
             }, 30);
         };
 
+        let isSwipingArticle = false;
+        let swipePreventionActive = false;
+
         const onTouchStart = (e) => { 
             touchStartY = e.touches ? e.touches[0].clientY : e.clientY;
             touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
             touchStartTime = Date.now();
+            isSwipingArticle = false;
+            swipePreventionActive = false;
         };
         
         const onTouchMove = (e) => {
-            // If currently swiping to change articles (detected in onTouchEnd),
-            // prevent page scroll. Otherwise, allow natural page scroll.
             const moveY = e.touches ? e.touches[0].clientY : e.clientY;
             const moveX = e.touches ? e.touches[0].clientX : e.clientX;
             const diffY = Math.abs(touchStartY - moveY);
@@ -362,13 +365,28 @@ const BlogSection = () => {
             const isVerticalSwipe = diffY > diffX && diffY > 20;
             const isHorizontalSwipe = diffX > diffY && diffX > 20;
             
-            // Only prevent default if it's a clear swipe (not page scroll)
+            // If swipe detected, mark it and block page scroll
             if (isVerticalSwipe || isHorizontalSwipe) {
+                isSwipingArticle = true;
+                
+                // Prevent default to stop scroll
                 e.preventDefault();
+                
+                // If not already active, block body scroll
+                if (!swipePreventionActive) {
+                    swipePreventionActive = true;
+                    document.body.style.overflow = 'hidden';
+                    document.documentElement.style.overflow = 'hidden';
+                }
             }
         };
         
         const onTouchEnd = (e) => {
+            // Re-enable scroll
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            swipePreventionActive = false;
+            
             if (isAnimating) return;
             
             const endY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
@@ -376,6 +394,9 @@ const BlogSection = () => {
             const diffY = touchStartY - endY;
             const diffX = touchStartX - endX;
             const touchDuration = Date.now() - touchStartTime;
+            
+            // Only process as swipe if we detected one during the move
+            if (!isSwipingArticle) return;
             
             // Calculate velocity for better swipe detection
             const velocity = Math.sqrt(diffY * diffY + diffX * diffX) / touchDuration;
@@ -412,11 +433,20 @@ const BlogSection = () => {
             }
         };
 
+        // Prevent scroll event during swipes
+        const preventScroll = (e) => {
+            if (swipePreventionActive) {
+                e.preventDefault();
+                window.scrollTo(0, 0);
+            }
+        };
+
         container.addEventListener('wheel', onWheel, { passive: false });
         container.addEventListener('touchstart', onTouchStart, { passive: true });
         container.addEventListener('touchmove', onTouchMove, { passive: false });
         container.addEventListener('touchend', onTouchEnd, { passive: true });
         window.addEventListener('keydown', onKeyDown);
+        window.addEventListener('scroll', preventScroll, { passive: false });
 
         return () => {
             container.removeEventListener('wheel', onWheel);
@@ -424,6 +454,10 @@ const BlogSection = () => {
             container.removeEventListener('touchmove', onTouchMove);
             container.removeEventListener('touchend', onTouchEnd);
             window.removeEventListener('keydown', onKeyDown);
+            window.removeEventListener('scroll', preventScroll);
+            // Clean up overflow styles if still active
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         };
     }, [activeCategory, activeIndex]);
 

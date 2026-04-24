@@ -140,8 +140,8 @@ html, body {
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    /* Allow page scroll to work naturally outside snap-container */
-    touch-action: pan-y;
+    /* Let JavaScript handle all scroll prevention */
+    touch-action: auto;
 }
 
 /* Snap container: FIXED VIEWPORT FRAME that shows one article at a time.
@@ -156,9 +156,8 @@ html, body {
     min-height: calc(100vh - var(--header-height, 80px));
     /* NO SCROLL: articles are positioned absolutely and shown one at a time */
     overflow: visible;
-    /* Only allow manipulation (pinch, pan) but NOT default pan-y scroll
-       This allows our JS to handle swipes while blocking automatic scroll */
-    touch-action: manipulation;
+    /* Allow default touch behavior - we handle swipes with JavaScript */
+    touch-action: auto;
     /* Ensure smooth visual transitions */
     perspective: 1200px;
     /* Dynamic bottom space - significantly increased */
