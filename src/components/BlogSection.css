@@ -180,11 +180,8 @@ html, body {
     width: 100%;
     /* Match container height for fixed viewport effect */
     height: calc(100vh - var(--header-height, 80px));
-    /* Allow internal scrolling if content is taller than viewport */
-    overflow-y: auto;
-    overflow-x: hidden;
-    /* Smooth scrolling on mobile */
-    -webkit-overflow-scrolling: touch;
+    /* NO INTERNAL SCROLL: Content displays but doesn't scroll the page */
+    overflow: hidden;
     /* Center the article content */
     display: flex;
     align-items: flex-start;
@@ -344,10 +341,8 @@ html, body {
     .snap-item {
         /* Match container height */
         height: calc(100vh - var(--header-height, 80px));
-        /* Allow internal scrolling for long articles */
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        /* NO scroll - prevents page scroll */
+        overflow: hidden;
         padding: 20px 12px 100px;
         /* Faster transitions on mobile */
         transition: transform 500ms cubic-bezier(.2,.9,.2,1), 
@@ -358,7 +353,6 @@ html, body {
         /* Ensure pointer events work for touch */
         pointer-events: auto;
     }
-}
 }
 
 @media (max-width: 640px) {
