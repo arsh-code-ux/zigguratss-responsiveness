@@ -299,15 +299,7 @@ const BlogSection = () => {
         };
 
         const onWheel = (e) => {
-            // Only handle wheel on desktop (mouse wheel), not on mobile
-            // Check if it's a trackpad/mouse wheel event (not touch)
-            const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            if (isMobileDevice) {
-                // On mobile, let normal scroll work
-                return;
-            }
-
-            // Only prevent default when inside the snap container on desktop
+            // Only prevent default when inside the snap container
             const rect = container.getBoundingClientRect();
             const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
             
@@ -344,39 +336,24 @@ const BlogSection = () => {
             }, 30);
         };
 
-        let isSwipingArticle = false;
-        let swipePreventionActive = false;
-
         const onTouchStart = (e) => { 
             touchStartY = e.touches ? e.touches[0].clientY : e.clientY;
             touchStartX = e.touches ? e.touches[0].clientX : e.clientX;
             touchStartTime = Date.now();
-            isSwipingArticle = false;
-            swipePreventionActive = false;
         };
         
         const onTouchMove = (e) => {
-            const moveY = e.touches ? e.touches[0].clientY : e.clientY;
-            const moveX = e.touches ? e.touches[0].clientX : e.clientX;
-            const diffY = Math.abs(touchStartY - moveY);
-            const diffX = Math.abs(touchStartX - moveX);
+            // Prevent page scroll while swiping on articles
+            const target = e.target;
+            const isScrollable = target.closest('.post-content-scroll');
             
-            // Check if this is a vertical or horizontal swipe in progress
-            const isVerticalSwipe = diffY > diffX && diffY > 20;
-            const isHorizontalSwipe = diffX > diffY && diffX > 20;
-            
-            // If swipe detected, mark it and block page scroll
-            if (isVerticalSwipe || isHorizontalSwipe) {
-                isSwipingArticle = true;
+            if (!isScrollable) {
+                const moveY = e.touches ? e.touches[0].clientY : e.clientY;
+                const diffY = Math.abs(touchStartY - moveY);
                 
-                // Prevent default to stop scroll
-                e.preventDefault();
-                
-                // If not already active, block body scroll
-                if (!swipePreventionActive) {
-                    swipePreventionActive = true;
-                    document.body.style.overflow = 'hidden';
-                    document.documentElement.style.overflow = 'hidden';
+                // If vertical swipe is more than 10px, prevent page scroll
+                if (diffY > 10) {
+                    e.preventDefault();
                 }
             }
         };
@@ -390,43 +367,20 @@ const BlogSection = () => {
             const diffX = touchStartX - endX;
             const touchDuration = Date.now() - touchStartTime;
             
-            // Only process as swipe if we detected one during the move
-            if (!isSwipingArticle) return;
-            
             // Calculate velocity for better swipe detection
             const velocity = Math.sqrt(diffY * diffY + diffX * diffX) / touchDuration;
             
-            // Swipe threshold (50px minimum movement)
-            const swipeThreshold = 50;
-            
-            // Check which direction has more movement
-            const isDominantHorizontal = Math.abs(diffX) > Math.abs(diffY);
-            const isDominantVertical = Math.abs(diffY) > Math.abs(diffX);
-            
-            // Horizontal swipe: Left/Right arrow changes articles
-            if (isDominantHorizontal && Math.abs(diffX) > swipeThreshold) {
+            // Determine if horizontal or vertical swipe was dominant
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                // Horizontal swipe
+                if (Math.abs(diffX) < 40) return;
                 // Right swipe (diffX negative) = previous, Left swipe (diffX positive) = next
                 changeArticle(diffX > 0 ? 1 : -1);
-                // Keep scroll prevention active during article animation (700ms)
-                // Will be re-enabled after animation completes
-            }
-            // Vertical swipe: Up/Down arrow changes articles
-            else if (isDominantVertical && Math.abs(diffY) > swipeThreshold) {
-                // Swipe up (diffY positive) = next, Swipe down (diffY negative) = previous
+            } else {
+                // Vertical swipe - reduced threshold for mobile
+                if (Math.abs(diffY) < 40 && velocity < 0.5) return;
                 changeArticle(diffY > 0 ? 1 : -1);
-                // Keep scroll prevention active during article animation (700ms)
-                // Will be re-enabled after animation completes
             }
-            
-            // IMPORTANT: Don't disable scroll prevention here!
-            // Keep it active through the entire article animation (700ms)
-            // Schedule disabling after animation completes
-            setTimeout(() => {
-                swipePreventionActive = false;
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
-                window.scrollTo(0, 0); // Final reset to top
-            }, 750); // Slightly longer than animation (700ms) to ensure completion
         };
 
         // Keyboard navigation - support both vertical AND horizontal arrow keys
@@ -442,24 +396,11 @@ const BlogSection = () => {
             }
         };
 
-        // Prevent scroll event during swipes and article animation
-        const preventScroll = (e) => {
-            if (swipePreventionActive) {
-                // Prevent default scroll behavior
-                e.preventDefault();
-                // Force scroll back to top if any scroll occurred
-                window.scrollTo(0, 0);
-                // Also prevent scroll on documentElement
-                document.documentElement.scrollTop = 0;
-            }
-        };
-
         container.addEventListener('wheel', onWheel, { passive: false });
         container.addEventListener('touchstart', onTouchStart, { passive: true });
         container.addEventListener('touchmove', onTouchMove, { passive: false });
         container.addEventListener('touchend', onTouchEnd, { passive: true });
         window.addEventListener('keydown', onKeyDown);
-        window.addEventListener('scroll', preventScroll, { passive: false });
 
         return () => {
             container.removeEventListener('wheel', onWheel);
@@ -467,10 +408,6 @@ const BlogSection = () => {
             container.removeEventListener('touchmove', onTouchMove);
             container.removeEventListener('touchend', onTouchEnd);
             window.removeEventListener('keydown', onKeyDown);
-            window.removeEventListener('scroll', preventScroll);
-            // Clean up overflow styles if still active
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
         };
     }, [activeCategory, activeIndex]);
 

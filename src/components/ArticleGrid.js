@@ -7,21 +7,10 @@ const ArticleGrid = ({ articles }) => {
     const navigate = useNavigate();
     const carouselRef = useRef(null);
     const [isHovering, setIsHovering] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const handleArticleClick = (id) => {
         navigate(`/article/${id}`);
     };
-
-    // Detect mobile viewport
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     useEffect(() => {
         const carousel = carouselRef.current;
@@ -31,7 +20,6 @@ const ArticleGrid = ({ articles }) => {
         let animationFrameId = null;
 
         const scroll = () => {
-            // Continue scrolling unless user is hovering/touching
             if (!isHovering) {
                 scrollPosition += 1;
                 carousel.scrollLeft = scrollPosition;
@@ -61,8 +49,6 @@ const ArticleGrid = ({ articles }) => {
                 ref={carouselRef}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
-                onTouchStart={() => setIsHovering(true)}
-                onTouchEnd={() => setIsHovering(false)}
             >
                 <div className="carousel-track">
                     {/* Original articles */}

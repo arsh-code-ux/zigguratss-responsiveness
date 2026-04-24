@@ -6,10 +6,9 @@
      background-attachment: fixed;
      position: relative;
      overflow: visible;
-     /* Spacing for fixed viewport section */
-     margin-bottom: 100px;
-     /* No padding-bottom as articles scroll internally */
-     padding-bottom: 40px;
+     /* Ensure footer appears after this section with proper spacing */
+     margin-bottom: 0;
+     padding-bottom: 250px;
  }
 
 /* Parallax utility: apply this class to any section or div that has a
@@ -141,29 +140,25 @@ html, body {
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    /* Let JavaScript handle all scroll prevention */
-    touch-action: auto;
 }
 
 /* Snap container: FIXED VIEWPORT FRAME that shows one article at a time.
    Articles appear/disappear in place without scrolling the page. */
 .snap-container {
-    /* FIXED HEIGHT: Acts like a window/viewport - doesn't expand or move */
+    /* RELATIVE POSITION: Takes normal document flow space */
     position: relative;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    /* Set fixed height for viewport window effect */
-    height: calc(100vh - var(--header-height, 80px));
+    /* Minimum height to ensure content visibility */
+    min-height: calc(100vh - var(--header-height, 80px));
     /* NO SCROLL: articles are positioned absolutely and shown one at a time */
-    overflow: hidden;
-    /* Allow default touch behavior - we handle swipes with JavaScript */
-    touch-action: auto;
+    overflow: visible;
+    /* Enable touch events for both horizontal and vertical swipe detection */
+    touch-action: pan-x pan-y;
     /* Ensure smooth visual transitions */
     perspective: 1200px;
-    /* Remove padding/margin that would expand container */
-    padding: 0;
-    margin-bottom: 0;
+    /* Dynamic bottom space - significantly increased */
+    padding-bottom: max(40vh, 350px);
+    margin-bottom: 100px;
 }
 
 /* Hide scrollbar for Chrome/Safari */
@@ -178,22 +173,21 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    /* Match container height for fixed viewport effect */
-    height: calc(100vh - var(--header-height, 80px));
-    /* NO INTERNAL SCROLL: Content displays but doesn't scroll the page */
-    overflow: hidden;
+    /* Allow content to expand beyond viewport - use min-height not max-height */
+    min-height: calc(100vh - var(--header-height, 80px));
+    height: auto;
     /* Center the article content */
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px 10px 100px;
+    padding: 20px 10px 200px;
     box-sizing: border-box;
-    /* Smooth transitions for enter/exit animations - supports both horizontal and vertical swipes */
+    /* Smooth transitions for enter/exit animations */
     transition: transform 700ms cubic-bezier(.2,.9,.2,1), 
                 opacity 500ms ease;
     /* DEFAULT: Completely hidden */
     opacity: 0;
-    transform: translateY(0) scale(0.95);
+    transform: translateY(0);
     pointer-events: none;
     visibility: hidden;
     z-index: 1;
@@ -331,27 +325,36 @@ html, body {
         font-size: 15px;
     }
     
-    /* Mobile: fixed viewport for articles without page scroll */
+    /* Mobile: improve article viewing and prevent page scroll during swipe */
     .snap-container {
-        /* Keep fixed height viewport */
-        height: calc(100vh - var(--header-height, 80px));
-        overflow: hidden;
+        min-height: auto;
+        /* Increased bottom padding to prevent footer overlap */
+        padding-bottom: max(50vh, 400px);
+        margin-bottom: 100px;
+        /* Disable browser scroll snap on mobile for custom touch handling */
+        scroll-snap-type: none;
+        /* Prevent momentum scrolling interference */
+        -webkit-overflow-scrolling: auto;
+        /* Important: allow our touch handlers to work */
+        touch-action: pan-y;
     }
     
     .snap-item {
-        /* Match container height */
-        height: calc(100vh - var(--header-height, 80px));
-        /* NO scroll - prevents page scroll */
-        overflow: hidden;
-        padding: 20px 12px 100px;
+        scroll-snap-stop: normal;
+        /* Allow content to expand - use auto height */
+        min-height: auto;
+        height: auto;
+        padding: 20px 12px 220px;
         /* Faster transitions on mobile */
         transition: transform 500ms cubic-bezier(.2,.9,.2,1), 
                     opacity 400ms ease;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        /* Ensure pointer events work for touch */
-        pointer-events: auto;
+    }
+
+    .snap-container::after {
+        height: 220px;
     }
 }
 
@@ -387,24 +390,28 @@ html, body {
     }
 
     .snap-container {
-        height: calc(100vh - var(--header-height, 80px));
-        overflow: hidden;
+        padding-bottom: max(48vh, 380px);
+        margin-bottom: 90px;
     }
 
     .snap-item {
-        height: calc(100vh - var(--header-height, 80px));
-        overflow: hidden;
-        padding: 18px 10px 100px;
+        min-height: auto;
+        height: auto;
+        padding: 18px 10px 220px;
         display: flex;
         align-items: flex-start;
         justify-content: center;
+    }
+
+    .snap-container::after {
+        height: 220px;
     }
 }
 
 @media (max-width: 480px) {
     .blog-section {
         padding: 24px 6px;
-        padding-bottom: 60px;
+        padding-bottom: 160px;
     }
 
     .section-header {
@@ -422,20 +429,22 @@ html, body {
         margin: 12px 0 20px;
     }
 
-    .snap-container {
-        height: calc(100vh - var(--header-height, 80px));
-        overflow: hidden;
-    }
-
     .snap-item {
-        height: calc(100vh - var(--header-height, 80px));
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        padding: 16px 8px 100px;
+        padding: 16px 8px 220px;
+        min-height: auto;
+        height: auto;
         display: flex;
         align-items: flex-start;
         justify-content: center;
+    }
+
+    .snap-container {
+        padding-bottom: max(45vh, 360px);
+        margin-bottom: 80px;
+    }
+
+    .snap-container::after {
+        height: 220px;
     }
 }
 

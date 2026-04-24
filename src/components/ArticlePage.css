@@ -111,10 +111,8 @@
         grid-template-columns: 1fr;
         padding: 100px 16px 80px;
         /* Enable proper scrolling on mobile */
-        overflow-y: visible;
-        overflow-x: hidden;
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        touch-action: pan-y;
     }
     
     /* Make sidebars stack below the main content */
