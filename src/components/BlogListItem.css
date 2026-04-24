@@ -173,6 +173,9 @@
         grid-template-columns: 1fr;
         gap: 24px;
         padding: 20px 16px;
+        /* Allow content to be scrollable on mobile */
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
     }
     
     .post-row.reverse { 
@@ -185,6 +188,8 @@
         border: 6px solid #c9a227;
         padding: 12px;
         max-height: none;
+        /* Allow image to be scrollable on mobile */
+        touch-action: auto;
     }
     
     .post-image img { 
@@ -192,11 +197,15 @@
         width: 100%; 
         height: auto; 
         object-fit: cover;
+        /* Ensure images are touchable */
+        pointer-events: auto;
     }
     
     .post-content { 
         padding-left: 16px; 
-        padding-right: 16px; 
+        padding-right: 16px;
+        /* Allow text content to be scrollable on mobile */
+        touch-action: pan-y;
     }
     
     .post-title {

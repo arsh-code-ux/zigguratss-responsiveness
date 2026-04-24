@@ -333,10 +333,12 @@ html, body {
         margin-bottom: 100px;
         /* Disable browser scroll snap on mobile for custom touch handling */
         scroll-snap-type: none;
-        /* Prevent momentum scrolling interference */
-        -webkit-overflow-scrolling: auto;
-        /* Important: allow our touch handlers to work */
+        /* Allow smooth vertical scrolling of page while articles change */
+        -webkit-overflow-scrolling: touch;
+        /* Important: allow vertical page scroll, but swipe handling for articles */
         touch-action: pan-y;
+        /* Prevent overflow hidden which can block scrolling */
+        overflow: visible;
     }
     
     .snap-item {
@@ -351,6 +353,8 @@ html, body {
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        /* Ensure pointer events work for touch */
+        pointer-events: auto;
     }
 
     .snap-container::after {

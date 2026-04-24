@@ -299,7 +299,15 @@ const BlogSection = () => {
         };
 
         const onWheel = (e) => {
-            // Only prevent default when inside the snap container
+            // Only handle wheel on desktop (mouse wheel), not on mobile
+            // Check if it's a trackpad/mouse wheel event (not touch)
+            const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobileDevice) {
+                // On mobile, let normal scroll work
+                return;
+            }
+
+            // Only prevent default when inside the snap container on desktop
             const rect = container.getBoundingClientRect();
             const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
             
@@ -343,19 +351,9 @@ const BlogSection = () => {
         };
         
         const onTouchMove = (e) => {
-            // Prevent page scroll while swiping on articles
-            const target = e.target;
-            const isScrollable = target.closest('.post-content-scroll');
-            
-            if (!isScrollable) {
-                const moveY = e.touches ? e.touches[0].clientY : e.clientY;
-                const diffY = Math.abs(touchStartY - moveY);
-                
-                // If vertical swipe is more than 10px, prevent page scroll
-                if (diffY > 10) {
-                    e.preventDefault();
-                }
-            }
+            // On mobile, let natural scrolling work within snap-item
+            // Don't prevent default - let the browser handle native scrolling
+            // The snap-item will show one article at a time, so scrolling will be natural
         };
         
         const onTouchEnd = (e) => {
@@ -370,17 +368,13 @@ const BlogSection = () => {
             // Calculate velocity for better swipe detection
             const velocity = Math.sqrt(diffY * diffY + diffX * diffX) / touchDuration;
             
-            // Determine if horizontal or vertical swipe was dominant
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                // Horizontal swipe
-                if (Math.abs(diffX) < 40) return;
+            // Only change article on significant horizontal swipe
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                // Horizontal swipe only
                 // Right swipe (diffX negative) = previous, Left swipe (diffX positive) = next
                 changeArticle(diffX > 0 ? 1 : -1);
-            } else {
-                // Vertical swipe - reduced threshold for mobile
-                if (Math.abs(diffY) < 40 && velocity < 0.5) return;
-                changeArticle(diffY > 0 ? 1 : -1);
             }
+            // Vertical swipes should allow normal page scrolling
         };
 
         // Keyboard navigation - support both vertical AND horizontal arrow keys

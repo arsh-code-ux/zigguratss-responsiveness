@@ -7,14 +7,25 @@ const ArticleGrid = ({ articles }) => {
     const navigate = useNavigate();
     const carouselRef = useRef(null);
     const [isHovering, setIsHovering] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const handleArticleClick = (id) => {
         navigate(`/article/${id}`);
     };
 
+    // Detect mobile viewport
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     useEffect(() => {
         const carousel = carouselRef.current;
-        if (!carousel) return;
+        if (!carousel || isMobile) return; // Disable auto-scroll on mobile
 
         let scrollPosition = 0;
         let animationFrameId = null;
@@ -40,7 +51,7 @@ const ArticleGrid = ({ articles }) => {
                 cancelAnimationFrame(animationFrameId);
             }
         };
-    }, [isHovering]);
+    }, [isHovering, isMobile]);
 
     return (
         <div className="article-carousel-section">
