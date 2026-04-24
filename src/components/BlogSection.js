@@ -382,11 +382,6 @@ const BlogSection = () => {
         };
         
         const onTouchEnd = (e) => {
-            // Re-enable scroll
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-            swipePreventionActive = false;
-            
             if (isAnimating) return;
             
             const endY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
@@ -412,12 +407,26 @@ const BlogSection = () => {
             if (isDominantHorizontal && Math.abs(diffX) > swipeThreshold) {
                 // Right swipe (diffX negative) = previous, Left swipe (diffX positive) = next
                 changeArticle(diffX > 0 ? 1 : -1);
+                // Keep scroll prevention active during article animation (700ms)
+                // Will be re-enabled after animation completes
             }
             // Vertical swipe: Up/Down arrow changes articles
             else if (isDominantVertical && Math.abs(diffY) > swipeThreshold) {
                 // Swipe up (diffY positive) = next, Swipe down (diffY negative) = previous
                 changeArticle(diffY > 0 ? 1 : -1);
+                // Keep scroll prevention active during article animation (700ms)
+                // Will be re-enabled after animation completes
             }
+            
+            // IMPORTANT: Don't disable scroll prevention here!
+            // Keep it active through the entire article animation (700ms)
+            // Schedule disabling after animation completes
+            setTimeout(() => {
+                swipePreventionActive = false;
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+                window.scrollTo(0, 0); // Final reset to top
+            }, 750); // Slightly longer than animation (700ms) to ensure completion
         };
 
         // Keyboard navigation - support both vertical AND horizontal arrow keys
@@ -433,11 +442,15 @@ const BlogSection = () => {
             }
         };
 
-        // Prevent scroll event during swipes
+        // Prevent scroll event during swipes and article animation
         const preventScroll = (e) => {
             if (swipePreventionActive) {
+                // Prevent default scroll behavior
                 e.preventDefault();
+                // Force scroll back to top if any scroll occurred
                 window.scrollTo(0, 0);
+                // Also prevent scroll on documentElement
+                document.documentElement.scrollTop = 0;
             }
         };
 
